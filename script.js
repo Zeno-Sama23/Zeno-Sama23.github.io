@@ -113,14 +113,6 @@ const projects = [
     ]
   },
   {
-    title: "Cloud Security Posture Automation",
-    description: "Automatisation de l'évaluation de la posture de sécurité Azure via Python et l'API Microsoft Defender for Cloud — remontée des non-conformités et génération de rapports.",
-    tags: ["Python","Azure","Defender for Cloud","Automation"],
-    result: null,
-    status: "soon",
-    link: null
-  },
-  {
     title: "Automated Incident Response with SOAR",
     description: "3 playbooks Azure Logic Apps déclenchés automatiquement par Microsoft Sentinel : alerte email brute force (Outlook), désactivation automatique du compte compromis via Entra ID, et enrichissement IP en temps réel via l'API VirusTotal v3. MTTR réduit à moins de 60 secondes.",
     tags: ["Logic Apps","SOAR","Microsoft Sentinel","Entra ID","VirusTotal API"],
@@ -132,14 +124,6 @@ const projects = [
       { mitre: "T1110.001", name: "Playbook 2 — Auto Disable Compromised User (Entra ID)", severity: "Medium", done: true },
       { mitre: "T1078.004", name: "Playbook 3 — IP Enrichment via VirusTotal API", severity: "High", done: true }
     ]
-  },
-  {
-    title: "Terraform Secure Azure Baseline",
-    description: "Déploiement IaC d'une baseline Azure sécurisée : policies, RBAC minimal, Log Analytics, Defender plans activés et alertes budget FinOps intégrées.",
-    tags: ["Terraform","Azure","IaC","FinOps","Security"],
-    result: null,
-    status: "soon",
-    link: null
   },
   {
     title: "Linux Log Analysis + Wazuh SIEM",
@@ -222,6 +206,227 @@ const projectImages = {
 const lightboxGalleries = {};
 
 // ===========================
+// I18N
+// ===========================
+let currentLang = localStorage.getItem('lang') || 'fr';
+let i18nInitialized = false;
+
+const translations = {
+  fr: {
+    'page-title': 'Teddy Kamdem — Ingénieur Cybersécurité Azure & SOC',
+    'nav-results': 'Résultats', 'nav-experience': 'Expérience', 'nav-expertise': 'Expertises',
+    'nav-projects': 'Projets', 'nav-contact': 'Me contacter',
+    'hero-available': 'Disponible immédiatement',
+    'hero-subtitle': 'Je sécurise les infrastructures Microsoft — <strong>Azure Sentinel</strong>, <strong>Defender 365</strong>, <strong>KQL</strong>. Trois ans de terrain chez Safran et Open BPO sur des SI industriels critiques.',
+    'hero-btn-projects': 'Voir mes projets', 'hero-btn-cv': 'Télécharger le CV',
+    'impact-label': '// Résultats concrets',
+    'impact-title': 'Ce que j\'ai <span class="accent">accompli</span>',
+    'impact-endpoints-label': 'Endpoints sécurisés',
+    'impact-endpoints-ctx': 'Déploiement EDR/EPP Defender for Endpoint — Open BPO',
+    'impact-cve-label': 'Réduction du backlog CVE',
+    'impact-cve-ctx': 'Priorisation par criticité métier — Defender Vulnerability Management',
+    'impact-certs-label': 'Certifications Microsoft',
+    'impact-certs-ctx': 'SC-100 Cybersecurity Architect · SC-200 Security Operations Analyst',
+    'impact-years-label': 'Grands comptes',
+    'impact-years-ctx': 'Safran (SI industriel critique) · Open BPO · Vortex Technology',
+    'years-suffix': ' ans',
+    'exp-label': '// Parcours professionnel',
+    'exp-title': 'Mon <span class="accent">Expérience</span>',
+    'exp1-title': 'Consultant Cybersécurité',
+    'exp1-b1': 'Déploiement et pilotage EDR/EPP (Defender for Endpoint, Trellix) sur <strong>8 000+ postes</strong>',
+    'exp1-b2': 'Écriture de règles de détection KQL et playbooks SOAR — réduction significative des faux positifs',
+    'exp1-b3': 'Gestion des vulnérabilités via Defender VM : priorisation par criticité métier, <strong>backlog réduit de 35%</strong>',
+    'exp1-b4': 'Automatisation de la remédiation — scripts PowerShell et Logic Apps',
+    'exp2-title': 'Ingénieur Cybersécurité', 'exp2-company-note': '— SI industriel critique',
+    'exp2-b1': 'Supervision SOC — SIEM, pare-feu, IDS/IPS, antivirus sur infrastructure industrielle en continu',
+    'exp2-b2': 'Analyse et réponse aux incidents : logs, corrélation événements, rapports de remédiation RSSI',
+    'exp2-b3': 'Application du framework <strong>MITRE ATT&CK</strong> pour la classification des menaces',
+    'exp2-b4': 'Campagnes de durcissement SI : patching, révision firewall, <strong>mise en conformité ISO 27001</strong>',
+    'exp3-title': 'Administrateur Systèmes & Sécurité Réseaux',
+    'exp3-b1': 'Administration de <strong>100+ serveurs</strong> Windows/Linux (Hyper-V, VMware) — portefeuille multi-clients',
+    'exp3-b2': 'Gestion des identités : AD, Azure AD, RBAC, GPO, Conditional Access, licences Office 365',
+    'exp3-b3': 'Gestion des patchs de sécurité et suivi des incidents via JIRA Software',
+    'exp4-title': 'Mastère Expert Systèmes Cloud FinOps', 'exp4-badge': 'Formation',
+    'exp4-location': 'Paris · En cours',
+    'exp4-desc': 'Optimisation des coûts cloud, gouvernance Azure/AWS, FinOps practices — combinaison avec expertise cybersécurité.',
+    'skills-label': '// Compétences techniques',
+    'skills-title': 'Mes <span class="accent">Expertises</span>',
+    'projects-label': '// Réalisations & Labs',
+    'projects-title': 'Projets <span class="accent">&amp; Labs</span>',
+    'projects-done': 'Terminé', 'projects-rules': 'Règles — MITRE ATT&CK',
+    'projects-roadmap': 'En préparation · Cloud Security Posture Automation · Terraform Secure Azure Baseline',
+    'contact-label': '// Travaillons ensemble',
+    'contact-title': 'Me <span class="accent">Contacter</span>',
+    'contact-avail-1': 'Disponible immédiatement', 'contact-avail-2': 'Île-de-France · Hybride · Remote',
+    'contact-avail-3': 'CDI · Mission · Freelance', 'contact-avail-4': 'Anglais B2/C1',
+    'contact-info-title': 'Discutons de votre besoin',
+    'contact-info-p': 'SOC à renforcer, déploiement Defender, sécurisation Azure, audit ISO 27001 — je réponds sous 24h.',
+    'contact-schedule': 'Planifier un entretien',
+    'form-label-name': 'Nom', 'form-ph-name': 'Jean Dupont',
+    'form-label-company': 'Société', 'form-label-email': 'Email professionnel',
+    'form-ph-email': 'jean@entreprise.fr', 'form-label-subject': 'Type de mission',
+    'form-opt-default': 'Sélectionner…', 'form-opt-cdi': 'Opportunité CDI',
+    'form-opt-mission': 'Mission / Freelance', 'form-opt-stage': 'Stage / Alternance',
+    'form-opt-other': 'Autre', 'form-label-message': 'Message',
+    'form-ph-message': 'Décrivez votre besoin ou votre opportunité…',
+    'form-submit': 'Envoyer le message', 'form-sending': 'Envoi en cours…',
+    'form-success': 'Message envoyé — je vous réponds sous 24h.',
+    'form-error': 'Une erreur est survenue. Veuillez réessayer.',
+    'footer-role': 'Teddy Kamdem · Ingénieur Cybersécurité', 'footer-location': 'Paris, Île-de-France',
+    'footer-results': 'Résultats', 'footer-experience': 'Expérience',
+    'footer-projects': 'Projets', 'footer-contact': 'Contact',
+    'footer-copy': '© 2025 Teddy Kamdem · Tous droits réservés',
+  },
+  en: {
+    'page-title': 'Teddy Kamdem — Cybersecurity Engineer Azure & SOC',
+    'nav-results': 'Results', 'nav-experience': 'Experience', 'nav-expertise': 'Expertise',
+    'nav-projects': 'Projects', 'nav-contact': 'Contact me',
+    'hero-available': 'Available immediately',
+    'hero-subtitle': 'I secure Microsoft infrastructures — <strong>Azure Sentinel</strong>, <strong>Defender 365</strong>, <strong>KQL</strong>. Three years in the field at Safran and Open BPO on critical industrial systems.',
+    'hero-btn-projects': 'View my projects', 'hero-btn-cv': 'Download CV',
+    'impact-label': '// Concrete results',
+    'impact-title': 'What I\'ve <span class="accent">achieved</span>',
+    'impact-endpoints-label': 'Secured endpoints',
+    'impact-endpoints-ctx': 'EDR/EPP Defender for Endpoint deployment — Open BPO',
+    'impact-cve-label': 'CVE backlog reduction',
+    'impact-cve-ctx': 'Business-criticality prioritization — Defender Vulnerability Management',
+    'impact-certs-label': 'Microsoft Certifications',
+    'impact-certs-ctx': 'SC-100 Cybersecurity Architect · SC-200 Security Operations Analyst',
+    'impact-years-label': 'Enterprise clients',
+    'impact-years-ctx': 'Safran (critical industrial systems) · Open BPO · Vortex Technology',
+    'years-suffix': ' yrs',
+    'exp-label': '// Professional background',
+    'exp-title': 'My <span class="accent">Experience</span>',
+    'exp1-title': 'Cybersecurity Consultant',
+    'exp1-b1': 'EDR/EPP deployment and management (Defender for Endpoint, Trellix) on <strong>8,000+ endpoints</strong>',
+    'exp1-b2': 'KQL detection rules and SOAR playbooks — significant reduction in false positives',
+    'exp1-b3': 'Vulnerability management via Defender VM: business-criticality prioritization, <strong>backlog reduced by 35%</strong>',
+    'exp1-b4': 'Remediation automation — PowerShell scripts and Logic Apps',
+    'exp2-title': 'Cybersecurity Engineer', 'exp2-company-note': '— Critical industrial systems',
+    'exp2-b1': 'SOC monitoring — SIEM, firewall, IDS/IPS, antivirus on industrial infrastructure 24/7',
+    'exp2-b2': 'Incident analysis and response: log analysis, event correlation, CISO remediation reports',
+    'exp2-b3': 'Application of <strong>MITRE ATT&CK</strong> framework for threat classification',
+    'exp2-b4': 'System hardening campaigns: patching, firewall review, <strong>ISO 27001 compliance</strong>',
+    'exp3-title': 'Systems & Network Security Administrator',
+    'exp3-b1': 'Administration of <strong>100+ servers</strong> Windows/Linux (Hyper-V, VMware) — multi-client portfolio',
+    'exp3-b2': 'Identity management: AD, Azure AD, RBAC, GPO, Conditional Access, Office 365 licences',
+    'exp3-b3': 'Security patch management and incident tracking via JIRA Software',
+    'exp4-title': "Master's — Cloud FinOps Expert Systems", 'exp4-badge': 'Education',
+    'exp4-location': 'Paris · In progress',
+    'exp4-desc': 'Cloud cost optimization, Azure/AWS governance, FinOps practices — combined with cybersecurity expertise.',
+    'skills-label': '// Technical skills',
+    'skills-title': 'My <span class="accent">Expertise</span>',
+    'projects-label': '// Projects & Labs',
+    'projects-title': 'Projects <span class="accent">&amp; Labs</span>',
+    'projects-done': 'Completed', 'projects-rules': 'Rules — MITRE ATT&CK',
+    'projects-roadmap': 'In preparation · Cloud Security Posture Automation · Terraform Secure Azure Baseline',
+    'contact-label': "// Let's work together",
+    'contact-title': 'Contact <span class="accent">Me</span>',
+    'contact-avail-1': 'Available immediately', 'contact-avail-2': 'Île-de-France · Hybrid · Remote',
+    'contact-avail-3': 'Full-time · Contract · Freelance', 'contact-avail-4': 'English B2/C1',
+    'contact-info-title': "Let's discuss your needs",
+    'contact-info-p': 'SOC reinforcement, Defender deployment, Azure security, ISO 27001 audit — I respond within 24h.',
+    'contact-schedule': 'Schedule an interview',
+    'form-label-name': 'Name', 'form-ph-name': 'John Smith',
+    'form-label-company': 'Company', 'form-label-email': 'Work email',
+    'form-ph-email': 'john@company.com', 'form-label-subject': 'Type of opportunity',
+    'form-opt-default': 'Select…', 'form-opt-cdi': 'Full-time position',
+    'form-opt-mission': 'Contract / Freelance', 'form-opt-stage': 'Internship / Work-study',
+    'form-opt-other': 'Other', 'form-label-message': 'Message',
+    'form-ph-message': 'Describe your need or opportunity…',
+    'form-submit': 'Send message', 'form-sending': 'Sending…',
+    'form-success': 'Message sent — I will reply within 24h.',
+    'form-error': 'An error occurred. Please try again.',
+    'footer-role': 'Teddy Kamdem · Cybersecurity Engineer', 'footer-location': 'Paris, Île-de-France',
+    'footer-results': 'Results', 'footer-experience': 'Experience',
+    'footer-projects': 'Projects', 'footer-contact': 'Contact',
+    'footer-copy': '© 2025 Teddy Kamdem · All rights reserved',
+  },
+};
+
+const projectsI18n = {
+  'Azure Sentinel Detection Engineering Lab': {
+    description: 'Full Microsoft Sentinel deployment on an Azure tenant (Entra ID + Log Analytics Workspace). Five custom KQL detection rules mapped to MITRE ATT&CK, data connectors configured (SigninLogs, AuditLogs, Azure Activity) and a monitoring Workbook created.',
+    result: '5/5 KQL rules delivered · Workbook dashboard · Active data connectors · MITRE ATT&CK mapped',
+  },
+  'Microsoft Defender for Endpoint — Endpoint Security Lab': {
+    description: "Microsoft Defender for Endpoint deployment in an enterprise environment: Windows endpoint onboarding, Attack Surface Reduction rules, incident investigation (device timeline, process tree, network connections) and anomaly analysis. Demo lab with attack simulations, threat hunting via Advanced Hunting KQL and a full SOC investigation workflow. Master's thesis: anomaly analysis during MDE deployment.",
+    result: 'Endpoint onboarding · ASR rules · Incident investigation · Advanced Hunting KQL · Anomaly Detection',
+  },
+  'Automated Incident Response with SOAR': {
+    description: '3 Azure Logic Apps playbooks automatically triggered by Microsoft Sentinel: brute force email alert (Outlook), automatic disabling of compromised account via Entra ID, and real-time IP enrichment via VirusTotal v3 API. MTTR reduced to under 60 seconds.',
+    result: '3/3 playbooks operational · MTTR < 60s · Automated Entra ID · VirusTotal API v3',
+  },
+  'Linux Log Analysis + Wazuh SIEM': {
+    description: 'Full Wazuh SIEM lab: manager on WSL2, agent on Ubuntu VirtualBox VM. Real attack simulations (SSH brute force, sudo privilege escalation) with real-time detection and MITRE ATT&CK mapping. 406+ alerts generated.',
+    result: '406+ alerts · 3 MITRE ATT&CK techniques · T1110.001 · T1548.003 · T1078',
+  },
+  'Splunk SIEM Lab — SPL & Detection Rules': {
+    description: 'Splunk Enterprise deployment ingesting Windows logs (EventCodes 4624, 4625, 4672, 4720, 4728). Four SPL detection rules mapped to MITRE ATT&CK, a 3-panel Security Monitoring dashboard and a 40-event simulated dataset. Multi-SIEM skills (KQL + SPL).',
+    result: '4/4 SPL rules delivered · 3-panel dashboard · 40 events analyzed · Multi-SIEM KQL+SPL',
+  },
+  'Vulnerability Management — Nessus Essentials': {
+    description: 'Vulnerability scanning with Nessus Essentials on a Metasploitable2 target (VirtualBox VM). Critical/High vulnerability identification (unpatched services, exploitable CVEs), CVSS v3.0 score prioritization and a structured remediation report.',
+    result: null,
+  },
+};
+
+const skillsTitleEN = {
+  'Cloud & Azure': 'Cloud & Azure',
+  'SecOps / SOC': 'SecOps / SOC',
+  'Scripting & Automatisation': 'Scripting & Automation',
+  'Gestion des Vulnérabilités': 'Vulnerability Management',
+  'Administration Systèmes': 'Systems Administration',
+  'Conformité & GRC': 'Compliance & GRC',
+};
+
+function applyLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  localStorage.setItem('lang', lang);
+  const t = translations[lang];
+  const btn = document.getElementById('lang-toggle');
+  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
+  if (t['page-title']) document.title = t['page-title'];
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t[el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = t[el.dataset.i18nHtml];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const v = t[el.dataset.i18nPlaceholder];
+    if (v !== undefined) el.placeholder = v;
+  });
+
+  const yearCounter = document.querySelector('.impact-number[data-i18n-suffix]');
+  if (yearCounter) {
+    const suffix = t[yearCounter.dataset.i18nSuffix] ?? yearCounter.dataset.suffix;
+    yearCounter.dataset.suffix = suffix;
+    const raw = parseInt(yearCounter.textContent);
+    if (!isNaN(raw) && raw > 0) yearCounter.textContent = raw + suffix;
+  }
+
+  renderSkills();
+  renderProjects();
+  initTypewriter();
+
+  if (i18nInitialized) {
+    document.querySelectorAll('#projects-grid .reveal, #skills-grid .reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+function initI18n() {
+  applyLang(currentLang);
+  i18nInitialized = true;
+  const btn = document.getElementById('lang-toggle');
+  if (btn) btn.addEventListener('click', () => applyLang(currentLang === 'fr' ? 'en' : 'fr'));
+}
+
+// ===========================
 // RENDER SKILLS
 // ===========================
 function renderSkills() {
@@ -231,7 +436,7 @@ function renderSkills() {
     <div class="skill-category reveal">
       <div class="skill-category-header">
         <div class="skill-category-icon">${cat.icon}</div>
-        <span class="skill-category-title">${cat.title}</span>
+        <span class="skill-category-title">${currentLang === 'en' ? (skillsTitleEN[cat.title] || cat.title) : cat.title}</span>
       </div>
       <div class="skill-tags">
         ${cat.tags.map(t => `<span class="skill-tag${t.highlight ? ' highlight' : ''}">${t.label}</span>`).join('')}
@@ -281,7 +486,7 @@ function renderProjects() {
       <div class="project-rules">
         <div class="rules-title">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          Règles — MITRE ATT&CK
+          ${translations[currentLang]['projects-rules'] || 'Règles — MITRE ATT&CK'}
         </div>
         ${p.rules.map(r => `
           <div class="rule-row ${r.done ? 'rule-done' : 'rule-wip'}">
@@ -294,65 +499,66 @@ function renderProjects() {
   }
 
   const doneHTML = `<div class="projects-done-stack">
-    ${done.map(p => `
+    ${done.map(p => {
+      const i18n  = currentLang === 'en' ? (projectsI18n[p.title] || {}) : {};
+      const desc  = i18n.description || p.description;
+      const res   = i18n.hasOwnProperty('result') ? i18n.result : p.result;
+      const label = translations[currentLang]['projects-done'] || 'Terminé';
+      const ghLabel = currentLang === 'en' ? 'View on GitHub' : 'Voir sur GitHub';
+      return `
     <article class="project-card-h reveal">
       ${buildMedia(p)}
       <div class="pcard-body">
         <div class="pcard-top">
-          <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
-          <span class="project-status status-done">Terminé</span>
+          <div class="project-tags">${p.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}</div>
+          <span class="project-status status-done">${label}</span>
         </div>
         <h3 class="pcard-title">${p.title}</h3>
-        <p class="pcard-desc">${p.description}</p>
+        <p class="pcard-desc">${desc}</p>
         ${buildRules(p)}
-        ${p.result ? `<div class="project-result">${p.result}</div>` : ''}
-        ${p.link ? `<div class="pcard-actions"><a href="${p.link}" target="_blank" rel="noopener" class="project-link">Voir sur GitHub <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>` : ''}
+        ${res ? `<div class="project-result">${res}</div>` : ''}
+        ${p.link ? `<div class="pcard-actions"><a href="${p.link}" target="_blank" rel="noopener" class="project-link">${ghLabel} <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></div>` : ''}
       </div>
-    </article>`).join('')}
+    </article>`;
+    }).join('')}
   </div>`;
 
-  const upcomingHTML = upcoming.length ? `
-    <div class="projects-upcoming-label">En préparation &nbsp;·&nbsp; ${upcoming.length} projets</div>
-    <div class="projects-upcoming-grid">
-      ${upcoming.map(p => `
-      <div class="project-card-sm reveal">
-        <div class="pcard-sm-header">
-          <div class="pcard-sm-icon">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <span class="project-status status-soon">À venir</span>
-        </div>
-        <h4 class="pcard-sm-title">${p.title}</h4>
-        <p class="pcard-sm-desc">${p.description}</p>
-        <div class="project-tags">${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}</div>
-      </div>`).join('')}
-    </div>` : '';
+  const roadmapHTML = `<div class="projects-roadmap">${translations[currentLang]['projects-roadmap']}</div>`;
 
-  grid.innerHTML = doneHTML + upcomingHTML;
+  grid.innerHTML = doneHTML + roadmapHTML;
 }
 
 // ===========================
 // TYPEWRITER
 // ===========================
+let twActive = false;
 function initTypewriter() {
   const el = document.getElementById('typewriter');
   if (!el) return;
-  const words = ['Ingénieur Cybersécurité', 'Ingénieur Sécurité du Cloud'];
-  let wi = 0, ci = 0, deleting = false;
-  const type = () => {
-    const word = words[wi];
-    if (deleting) {
-      el.textContent = word.slice(0, --ci);
-    } else {
-      el.textContent = word.slice(0, ++ci);
-    }
-    let delay = deleting ? 50 : 90;
-    if (!deleting && ci === word.length) { delay = 1800; deleting = true; }
-    else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 300; }
-    setTimeout(type, delay);
+  const wordMap = {
+    fr: ['Ingénieur Cybersécurité', 'Ingénieur Sécurité du Cloud'],
+    en: ['Cybersecurity Engineer', 'Cloud Security Engineer'],
   };
-  setTimeout(type, 600);
+  const words = wordMap[currentLang] || wordMap.fr;
+  twActive = false;
+  setTimeout(() => {
+    twActive = true;
+    let wi = 0, ci = 0, deleting = false;
+    const type = () => {
+      if (!twActive) return;
+      const word = words[wi];
+      if (deleting) {
+        el.textContent = word.slice(0, --ci);
+      } else {
+        el.textContent = word.slice(0, ++ci);
+      }
+      let delay = deleting ? 50 : 90;
+      if (!deleting && ci === word.length) { delay = 1800; deleting = true; }
+      else if (deleting && ci === 0) { deleting = false; wi = (wi + 1) % words.length; delay = 300; }
+      setTimeout(type, delay);
+    };
+    setTimeout(type, 600);
+  }, 50);
 }
 
 // ===========================
@@ -551,7 +757,7 @@ function initForm() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     btn.disabled = true;
-    btn.textContent = 'Envoi en cours…';
+    btn.textContent = translations[currentLang]?.['form-sending'] || 'Envoi en cours…';
     try {
       const res = await fetch(form.action, {
         method: 'POST',
@@ -563,13 +769,13 @@ function initForm() {
         success.classList.add('show');
         setTimeout(() => success.classList.remove('show'), 5000);
       } else {
-        alert('Une erreur est survenue. Veuillez réessayer.');
+        alert(translations[currentLang]?.['form-error'] || 'Une erreur est survenue. Veuillez réessayer.');
       }
     } catch {
-      alert('Une erreur est survenue. Veuillez réessayer.');
+      alert(translations[currentLang]?.['form-error'] || 'Une erreur est survenue. Veuillez réessayer.');
     } finally {
       btn.disabled = false;
-      btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Envoyer le message`;
+      btn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> ${translations[currentLang]?.['form-submit'] || 'Envoyer le message'}`;
     }
   });
 }
@@ -578,9 +784,7 @@ function initForm() {
 // INIT
 // ===========================
 document.addEventListener('DOMContentLoaded', () => {
-  renderSkills();
-  renderProjects();
-  initTypewriter();
+  initI18n();
   initNavbar();
   initObfuscation();
   initPhoto();

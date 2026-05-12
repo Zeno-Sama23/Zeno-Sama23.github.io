@@ -214,6 +214,26 @@ ul { list-style: none; }
 .nav-links a.active::after { width: 100%; }
 .nav-links a.active { color: var(--blue-mid); }
 
+.lang-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.28rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  font-family: var(--font-mono);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.lang-toggle:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-pale);
+}
+
 .burger {
   display: none;
   flex-direction: column;
@@ -899,76 +919,19 @@ ul { list-style: none; }
   padding-top: 0.25rem;
 }
 
-/* ── Projets à venir ── */
-.projects-upcoming-label {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  margin-bottom: 1.25rem;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--text-dim);
-}
-.projects-upcoming-label::before,
-.projects-upcoming-label::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--border);
-}
-.projects-upcoming-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
-  gap: 1rem;
-}
-.project-card-sm {
-  background: var(--bg-alt);
-  border: 1.5px dashed var(--border);
-  border-radius: var(--radius-xl);
-  padding: 1.25rem 1.4rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  transition: border-color 0.2s, background 0.2s, transform 0.2s;
-}
-.project-card-sm:hover {
-  border-color: var(--blue-pale2);
-  background: #fff;
-  transform: translateY(-2px);
-}
-.pcard-sm-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.pcard-sm-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--blue-pale) 0%, var(--blue-pale2) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--blue);
-}
-.pcard-sm-title {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  line-height: 1.4;
-  margin: 0;
-}
-.pcard-sm-desc {
-  font-size: 0.8rem;
+/* ── Roadmap ── */
+.projects-roadmap {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.78rem;
   color: var(--text-muted);
-  line-height: 1.65;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin: 0;
+  padding: 0.7rem 1.5rem;
+  border: 1.5px dashed var(--border);
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ── Composants partagés ── */
