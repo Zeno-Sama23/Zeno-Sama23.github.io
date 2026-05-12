@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teddy Kamdem — Ingénieur Cybersécurité Azure & SOC</title>
+  <meta name="description" content="Ingénieur Cybersécurité Microsoft certifié SC-100 & SC-200. Spécialisé Azure Sentinel, Defender 365, KQL. 3 ans d'expérience grands comptes. Disponible immédiatement en Île-de-France." />
+  <meta property="og:title" content="Teddy Kamdem — Ingénieur Cybersécurité Azure & SOC" />
+  <meta property="og:description" content="SC-100 · SC-200 · Azure Sentinel · Defender 365 · Disponible immédiatement" />
+  <meta property="og:type" content="website" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io;" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#accueil" class="nav-logo">TK<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#impact" data-nav="impact">Résultats</a></li>
+        <li><a href="#experience" data-nav="experience">Expérience</a></li>
+        <li><a href="#expertises" data-nav="expertises">Expertises</a></li>
+        <li><a href="#projets" data-nav="projets">Projets</a></li>
+        <li><a href="#contact" class="btn-nav">Me contacter</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="#impact">Résultats</a>
+      <a href="#experience">Expérience</a>
+      <a href="#expertises">Expertises</a>
+      <a href="#projets">Projets</a>
+      <a href="#contact">Me contacter</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="accueil" class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-inner container">
+      <div class="hero-content">
+        <div class="hero-badges-top">
+          <span class="top-badge">
+            <span class="badge-dot"></span>
+            Disponible immédiatement
+          </span>
+          <span class="top-badge top-badge-cert">SC-100</span>
+          <span class="top-badge top-badge-cert">SC-200</span>
+        </div>
+        <h1 class="hero-title">
+          Teddy<br /><span class="accent">Kamdem</span>
+        </h1>
+        <div class="hero-typewriter">
+          <span id="typewriter" class="tw-text"></span><span class="tw-cursor">|</span>
+        </div>
+        <p class="hero-subtitle">
+          Je sécurise les infrastructures Microsoft — <strong>Azure Sentinel</strong>,
+          <strong>Defender 365</strong>, <strong>KQL</strong>. Trois ans de terrain
+          chez Safran et Open BPO sur des SI industriels critiques.
+        </p>
+        <div class="hero-actions">
+          <a href="#projets" class="btn-primary">
+            Voir mes projets
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="CV_Teddy_Kamdem_v3_FINAL.pdf" download class="btn-secondary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger le CV
+          </a>
+          <a href="https://linkedin.com/in/teddy-kamdem" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-ring">
+          <img src="photo.jpeg" alt="Teddy Kamdem" class="hero-photo" id="hero-photo" />
+          <div class="hero-photo-placeholder" id="hero-photo-placeholder">TK</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact" class="section section-impact">
+    <div class="container">
+      <p class="section-label">// Résultats concrets</p>
+      <h2 class="section-title">Ce que j'ai <span class="accent">accompli</span></h2>
+      <div class="impact-grid">
+        <div class="impact-card reveal">
+          <div class="impact-icon impact-icon-blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="impact-number" data-target="8000" data-suffix="+">0</div>
+          <div class="impact-label">Endpoints sécurisés</div>
+          <div class="impact-context">Déploiement EDR/EPP Defender for Endpoint — Open BPO</div>
+        </div>
+        <div class="impact-card reveal">
+          <div class="impact-icon impact-icon-green">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="impact-number" data-target="35" data-suffix="%">0</div>
+          <div class="impact-label">Réduction du backlog CVE</div>
+          <div class="impact-context">Priorisation par criticité métier — Defender Vulnerability Management</div>
+        </div>
+        <div class="impact-card reveal">
+          <div class="impact-icon impact-icon-purple">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="impact-number" data-target="2" data-suffix="">0</div>
+          <div class="impact-label">Certifications Microsoft</div>
+          <div class="impact-context">SC-100 Cybersecurity Architect · SC-200 Security Operations Analyst</div>
+        </div>
+        <div class="impact-card reveal">
+          <div class="impact-icon impact-icon-orange">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="impact-number" data-target="3" data-suffix=" ans">0</div>
+          <div class="impact-label">Grands comptes</div>
+          <div class="impact-context">Safran (SI industriel critique) · Open BPO · Vortex Technology</div>
+        </div>
+      </div>
+      <div class="cert-row reveal">
+        <div class="cert-pill cert-pill-ms">
+          <svg width="16" height="16" viewBox="0 0 23 23" fill="none"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
+          SC-100 · Cybersecurity Architect Expert
+        </div>
+        <div class="cert-pill cert-pill-ms">
+          <svg width="16" height="16" viewBox="0 0 23 23" fill="none"><rect x="1" y="1" width="10" height="10" fill="#f25022"/><rect x="12" y="1" width="10" height="10" fill="#7fba00"/><rect x="1" y="12" width="10" height="10" fill="#00a4ef"/><rect x="12" y="12" width="10" height="10" fill="#ffb900"/></svg>
+          SC-200 · Security Operations Analyst
+        </div>
+        <div class="cert-pill">ANSSI · Sécurité des SI</div>
+        <div class="cert-pill">ANSSI · EBIOS Risk Manager</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPÉRIENCE -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <p class="section-label">// Parcours professionnel</p>
+      <h2 class="section-title">Mon <span class="accent">Expérience</span></h2>
+      <div class="exp-timeline">
+
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <span class="exp-period">09/2024 — 07/2025</span>
+            <span class="exp-location">Montigny-le-Bretonneux</span>
+          </div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Consultant Cybersécurité</h3>
+                <span class="exp-company">Open BPO</span>
+              </div>
+              <div class="exp-tags-wrap">
+                <span class="exp-tag">EDR</span>
+                <span class="exp-tag">Azure Sentinel</span>
+                <span class="exp-tag">KQL</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Déploiement et pilotage EDR/EPP (Defender for Endpoint, Trellix) sur <strong>8 000+ postes</strong></li>
+              <li>Écriture de règles de détection KQL et playbooks SOAR — réduction significative des faux positifs</li>
+              <li>Gestion des vulnérabilités via Defender VM : priorisation par criticité métier, <strong>backlog réduit de 35%</strong></li>
+              <li>Automatisation de la remédiation — scripts PowerShell et Logic Apps</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <span class="exp-period">09/2022 — 08/2024</span>
+            <span class="exp-location">Paris</span>
+          </div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Ingénieur Cybersécurité</h3>
+                <span class="exp-company">Safran <span class="exp-company-note">— SI industriel critique</span></span>
+              </div>
+              <div class="exp-tags-wrap">
+                <span class="exp-tag">SOC N1/N2</span>
+                <span class="exp-tag">MITRE ATT&CK</span>
+                <span class="exp-tag">ISO 27001</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Supervision SOC — SIEM, pare-feu, IDS/IPS, antivirus sur infrastructure industrielle en continu</li>
+              <li>Analyse et réponse aux incidents : logs, corrélation événements, rapports de remédiation RSSI</li>
+              <li>Application du framework <strong>MITRE ATT&CK</strong> pour la classification des menaces</li>
+              <li>Campagnes de durcissement SI : patching, révision firewall, <strong>mise en conformité ISO 27001</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <span class="exp-period">2019 — 2021</span>
+            <span class="exp-location">Douala</span>
+          </div>
+          <div class="exp-card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Administrateur Systèmes & Sécurité Réseaux</h3>
+                <span class="exp-company">Vortex Technology Solutions</span>
+              </div>
+              <div class="exp-tags-wrap">
+                <span class="exp-tag">Active Directory</span>
+                <span class="exp-tag">Azure AD</span>
+                <span class="exp-tag">Windows Server</span>
+              </div>
+            </div>
+            <ul class="exp-bullets">
+              <li>Administration de <strong>100+ serveurs</strong> Windows/Linux (Hyper-V, VMware) — portefeuille multi-clients</li>
+              <li>Gestion des identités : AD, Azure AD, RBAC, GPO, Conditional Access, licences Office 365</li>
+              <li>Gestion des patchs de sécurité et suivi des incidents via JIRA Software</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <span class="exp-period">2025 — 2027</span>
+            <span class="exp-location">Paris · En cours</span>
+          </div>
+          <div class="exp-card exp-card-formation">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-title">Mastère Expert Systèmes Cloud FinOps</h3>
+                <span class="exp-company">ESSIN — Paris</span>
+              </div>
+              <span class="exp-formation-badge">Formation</span>
+            </div>
+            <p class="exp-formation-desc">Optimisation des coûts cloud, gouvernance Azure/AWS, FinOps practices — combinaison avec expertise cybersécurité.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERTISES -->
+  <section id="expertises" class="section">
+    <div class="container">
+      <p class="section-label">// Compétences techniques</p>
+      <h2 class="section-title">Mes <span class="accent">Expertises</span></h2>
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- PROJETS -->
+  <section id="projets" class="section section-alt">
+    <div class="container">
+      <p class="section-label">// Réalisations & Labs</p>
+      <h2 class="section-title">Projets <span class="accent">&amp; Labs</span></h2>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <p class="section-label">// Travaillons ensemble</p>
+      <h2 class="section-title">Me <span class="accent">Contacter</span></h2>
+      <div class="contact-avail reveal">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Disponible immédiatement</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Île-de-France · Hybride · Remote</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>CDI · Mission · Freelance</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Anglais B2/C1</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Discutons de votre besoin</h3>
+          <p>SOC à renforcer, déploiement Defender, sécurisation Azure, audit ISO 27001 — je réponds sous 24h.</p>
+          <div class="contact-links">
+            <a href="#" class="contact-link" id="email-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span id="email-text"></span>
+            </a>
+            <a href="https://linkedin.com/in/teddy-kamdem" target="_blank" rel="noopener" class="contact-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/teddy-kamdem
+            </a>
+            <a href="#" class="contact-link" id="tel-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 15.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 4.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 11.91a16 16 0 0 0 6.16 6.16l1.27-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span id="tel-text"></span>
+            </a>
+          </div>
+          <a href="#" class="btn-primary" id="schedule-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Planifier un entretien
+          </a>
+        </div>
+        <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/xeendjge" method="POST">
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="text" id="name" name="name" placeholder="Jean Dupont" required />
+            </div>
+            <div class="form-group">
+              <label for="company">Société</label>
+              <input type="text" id="company" name="company" placeholder="Acme Corp" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email professionnel</label>
+            <input type="email" id="email" name="email" placeholder="jean@entreprise.fr" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Type de mission</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Sélectionner…</option>
+              <option value="CDI">Opportunité CDI</option>
+              <option value="Mission">Mission / Freelance</option>
+              <option value="Stage/Alternance">Stage / Alternance</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin ou votre opportunité…" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full" id="submit-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Envoyer le message
+          </button>
+          <p class="form-success" id="form-success">Message envoyé — je vous réponds sous 24h.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="nav-logo">TK<span class="dot">.</span></span>
+          <p>Teddy Kamdem · Ingénieur Cybersécurité<br />Paris, Île-de-France</p>
+        </div>
+        <div class="footer-links">
+          <a href="#impact">Résultats</a>
+          <a href="#experience">Expérience</a>
+          <a href="#projets">Projets</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-right">
+          <a href="https://linkedin.com/in/teddy-kamdem" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="#" id="footer-email" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <p class="footer-copy">© 2025 Teddy Kamdem · Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

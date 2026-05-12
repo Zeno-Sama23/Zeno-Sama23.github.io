@@ -1,0 +1,11 @@
+# Outils internes Claude Code
+hook-sync.js
+sync.js
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+*.swp
