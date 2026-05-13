@@ -120,6 +120,11 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 
+.hero-icons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
 .btn-icon {
   display: inline-flex;
   align-items: center;
